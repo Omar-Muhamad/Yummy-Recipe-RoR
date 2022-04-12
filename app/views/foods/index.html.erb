@@ -2,13 +2,19 @@
 
 <h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+<%= link_to "New food", new_food_path %>
+
+<div id="foodsList">
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <%= render food %>
+    <% end %>
+  </table>
 </div>
 
-<%= link_to "New food", new_food_path %>

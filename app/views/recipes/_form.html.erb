@@ -18,17 +18,17 @@
 
   <div>
     <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time %>
+    <%= form.number_field :preparation_time %> minutes
   </div>
 
   <div>
     <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
+    <%= form.number_field :cooking_time %> minutes
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </div>
 
   <div>
@@ -36,9 +36,9 @@
     <%= form.check_box :public %>
   </div>
 
-  <div>
+  <div class="invisible">
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.text_field :user_id, value: current_user.id%>
   </div>
 
   <div>

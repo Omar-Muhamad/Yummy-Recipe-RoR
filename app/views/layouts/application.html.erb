@@ -13,6 +13,9 @@
   <%= render "layouts/partials/nav_bar" %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <% if current_user %>
+    <h3>You are logged in as <%= current_user.name %></h3>
+  <% end %>
     <%= yield %>
   </body>
 </html>

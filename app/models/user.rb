@@ -11,5 +11,5 @@ class User < ApplicationRecord
 
     def admin?
       role == 'admin' ? true : false
-    end 
+    end
 end

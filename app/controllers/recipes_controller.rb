@@ -1,9 +1,14 @@
 class RecipesController < ApplicationController
   load_and_authorize_resource
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  # before_action :set_user
 
   # GET /recipes or /recipes.json
   def index
+    @recipes = Recipe.includes(:user)
+  end
+
+  def public_recipes
     @recipes = Recipe.all
   end
 
@@ -26,7 +31,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to user_recipes_path, notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -68,4 +73,8 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
     end
+
+    # def set_user
+    #   @user = User.find(params[:user_id])
+    # end
 end

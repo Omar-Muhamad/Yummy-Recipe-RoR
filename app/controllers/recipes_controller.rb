@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
+    return unless user_signed_in?
     @user = User.find(current_user.id)
     @recipes = Recipe.where(user_id: @user.id)
   end

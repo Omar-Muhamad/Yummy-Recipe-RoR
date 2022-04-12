@@ -13,8 +13,10 @@
       </p>
     </div>
 
-    <% if current_user.id == recipe.user_id %>
+    <% if user_signed_in? %>
+      <% if current_user.id == recipe.user_id %>
       <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+      <% end %>
     <% end %>
   </div>
 
@@ -50,8 +52,10 @@
       <%= recipe.user_id %>
     </p>
 
-  <% if current_user.id == recipe.user_id %>
-    <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  <% if user_signed_in? %>
+    <% if current_user.id == recipe.user_id %>
+      <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+    <% end %>
   <% end %>
 </div>
 <% end %>

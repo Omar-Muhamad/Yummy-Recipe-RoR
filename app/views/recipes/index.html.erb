@@ -1,14 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<div class="m-32">
 
-<h1>Recipes</h1>
+  <p style="color: green"><%= notice %></p>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+  <h1 class="mb-11 text-3xl">Recipes</h1>
+
+  <% if current_user %>
+    <div id="recipes">
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+    </div>
+
+    <%= link_to "New recipe", new_recipe_path, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  <% else %>
+    <h3>Please log in to see your recipes!</h3>
+    <%= link_to "Log in", new_user_session_path %>
   <% end %>
-</div>
 
-<%= link_to "New recipe", new_recipe_path %>
+</div>

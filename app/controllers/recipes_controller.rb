@@ -1,10 +1,14 @@
 class RecipesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :set_recipe, only: %i[ show edit update destroy ] 
+  # before_action :set_user
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    if current_user
+      @user = User.find(current_user.id)
+      @recipes = Recipe.where(user_id: @user.id)
+    end
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -68,4 +72,8 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
     end
+
+    # def set_user
+    #   @user = User.find(current_user.id)
+    # end
 end

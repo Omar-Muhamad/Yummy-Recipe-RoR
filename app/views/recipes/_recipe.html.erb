@@ -1,5 +1,5 @@
-<div id="<%= dom_id recipe %>">
-  <p>
+<div id="<%= dom_id recipe %>" class="border-solid border-2 border-slate-400 p-4 mb-11">
+  <p class="mb-11">
     <strong>Name:</strong>
     <%= recipe.name %>
   </p>
@@ -24,9 +24,18 @@
     <%= recipe.public %>
   </p>
 
-  <p>
+  <p class="mb-11">
     <strong>User:</strong>
     <%= recipe.user_id %>
   </p>
+
+<div class="flex space-evenly">
+<% if current_page?(recipes_path) %>
+  <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  <%= link_to "Show this recipe", recipe, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+<% elsif current_page?(recipe_path(params[:id])) %>
+  <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+<% end %>
+</div>
 
 </div>

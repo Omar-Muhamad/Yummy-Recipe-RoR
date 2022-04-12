@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<div class="m-32">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+  <%= render @recipe %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <div class="flex">
+    <% if current_user %>
+      <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+    <% end %>
+      <%= link_to "Back to recipes", recipes_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  </div>
 </div>

@@ -13,8 +13,8 @@
 
     <%= link_to "New recipe", new_recipe_path, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
   <% else %>
-    <h3>Please log in to see your recipes!</h3>
-    <%= link_to "Log in", new_user_session_path %>
+    <h3 class="mb-8">Please log in to see your recipes!</h3>
+    <%= link_to "Log in", new_user_session_path, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
   <% end %>
 
 </div>

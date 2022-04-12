@@ -30,10 +30,12 @@
   </p>
 
 <div class="flex space-evenly">
-<% if current_page?(recipes_path) %>
+<% if current_user && current_page?(recipes_path) %>
   <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
   <%= link_to "Show this recipe", recipe, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-<% elsif current_page?(recipe_path(params[:id])) %>
+<% elsif current_page?(root_path)%>
+  <%= link_to "Show this recipe", recipe, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+<% elsif current_user.id == recipe.user_id && current_page?(recipe_path(params[:id])) %>
   <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
 <% end %>
 </div>

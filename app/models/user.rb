@@ -4,12 +4,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-    has_many :recipes
-    has_many :foods
+  has_many :recipes
+  has_many :foods
 
-    validates :name, presence: true
+  validates :name, presence: true
 
-    def admin?
-      role == 'admin' ? true : false
-    end 
+  def admin?
+    role == 'admin'
+  end
 end

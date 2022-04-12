@@ -1,43 +1,59 @@
 <div id="<%= dom_id recipe %>" class="border-solid border-2 border-slate-400 p-4 mb-11">
-  <p class="mb-11">
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
 
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
+<% if current_page?(recipes_path) || current_page?(root_path) %>
 
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
+  <div class="mb-11">
+    <div class="flex">
+      <p class="mr-20 w-1/4">
+        <%= link_to recipe.name, recipe, class:"text-xl font-bold underline hover:text-[#11537d]" %>
+      </p>
+      <p class="w-3/4">
+        <strong>Preparation:</strong><br>
+        <%= recipe.description %>
+      </p>
+    </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
+    <% if current_user.id == recipe.user_id %>
+      <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+    <% end %>
+  </div>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
+<% elsif current_page?(recipe_path(params[:id])) %>
 
-  <p class="mb-11">
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
+<div class="flex flex-col items-center">
+    <p class="mb-11 text-2xl">
+      <strong><%= recipe.name %></strong>
+    </p>
 
-<div class="flex space-evenly">
-<% if current_user && current_page?(recipes_path) %>
-  <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-  <%= link_to "Show this recipe", recipe, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-<% elsif current_page?(root_path)%>
-  <%= link_to "Show this recipe", recipe, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-<% elsif current_user.id == recipe.user_id && current_page?(recipe_path(params[:id])) %>
-  <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-<% end %>
+    <p>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time %> minutes
+    </p>
+
+    <p class="mb-11">
+      <strong>Cooking time:</strong>
+      <%= recipe.cooking_time %> minutes
+    </p>
+
+    <p>
+      <strong>Preparation:</strong>
+      <%= recipe.description %>
+    </p>
+
+    <p>
+      <strong>Public:</strong>
+      <%= recipe.public %>
+    </p>
+
+    <p class="mb-11">
+      <strong>User:</strong>
+      <%= recipe.user_id %>
+    </p>
+
+  <% if current_user.id == recipe.user_id %>
+    <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  <% end %>
 </div>
+<% end %>
 
 </div>

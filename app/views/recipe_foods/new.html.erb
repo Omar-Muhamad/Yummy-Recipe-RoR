@@ -4,6 +4,22 @@
 
 <br>
 
+<table>
+<tr>
+  <th>Food</th>
+  <th>Quantity</th>
+  <th>Price</th>
+  <th>Action</th>
+</tr>
+<% @foods.each do |food| %>
+  <%= render "foods/food", food: food %>
+<% end %>
+</table>
+
 <div>
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
+  <%= link_to "Add another food item", new_food_path %>
+</div>
+
+<div>
+  <%= link_to "Back to recipe foods", recipe_recipe_foods_path %>
 </div>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :recipe_foods
+
   resources :foods
-  resources :recipes
+  resources :recipes do
+    resources :recipe_foods
+  end
   resources :users
 
   resources :public_recipes, only: [:index]

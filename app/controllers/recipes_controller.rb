@@ -12,8 +12,8 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show 
-    @recipe_foods = Food.all
+  def show
+    @recipe_foods = RecipeFood.all
   end
 
   # GET /recipes/new

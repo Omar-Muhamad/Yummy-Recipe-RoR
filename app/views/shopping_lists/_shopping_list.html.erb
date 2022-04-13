@@ -1,0 +1,7 @@
+<tr id="<%= dom_id recipe_food %>">
+  <td><%= recipe_food.food.name %></td>
+  <td><%= recipe_food.quantity %></td>
+  <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+  <td><%= button_to 'Modify', recipe_recipe_food_path(recipe_food),  method: :edit %></td>
+  <td><%= button_to 'delete', recipe_recipe_food_path(recipe_food),  method: :delete %></td>
+</tr>

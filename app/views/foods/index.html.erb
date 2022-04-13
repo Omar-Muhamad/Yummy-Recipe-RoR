@@ -1,20 +1,24 @@
+<div class="m-32">
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+<h1 class="mb-11 text-3xl">Foods</h1>
 
-<%= link_to "New food", new_food_path %>
 
 <div id="foodsList">
-  <table>
-    <tr>
-      <th>Food</th>
-      <th>Measurement unit</th>
-      <th>Price</th>
-      <th>Action</th>
-    </tr>
-    <% @foods.each do |food| %>
-      <%= render food %>
-    <% end %>
+<table class="mb-20 text-left w-[80vw]" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">
+<tr>
+<th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">Food</th>
+<th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">Measurement unit</th>
+<th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">Price</th>
+<th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">Action</th>
+</tr>
+<% @foods.each do |food| %>
+  <%= render food %>
+  <% end %>
   </table>
+  </div>
+
+  <%= link_to "New food", new_food_path, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-[#11537d] hover:bg-cyan-500 text-white" %>
 </div>
 

@@ -1,7 +1,14 @@
-<tr id="<%= dom_id recipe_food %>">
-  <td><%= recipe_food.food.name %></td>
+<tr id="<%= dom_id recipe_food %>", class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+  <td class="p-4"><%= recipe_food.food.name %></td>
   <td><%= recipe_food.quantity %></td>
   <td><%= recipe_food.food.price * recipe_food.quantity %></td>
-  <td><%= button_to 'Modify', recipe_recipe_food_path(recipe_food),  method: :edit %></td>
-  <td><%= button_to 'delete', recipe_recipe_food_path(recipe_food),  method: :delete %></td>
+  <% unless current_page?(general_shopping_list_path) %>
+    <% if user_signed_in? %>
+      <td>
+        <%= link_to 'modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class:"hover:text-[#11537d]"%>
+
+        <%= button_to 'delete', recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id),  method: :delete, class:"hover:text-[#11537d]" %>
+      </td>
+    <% end %>
+  <% end %>
 </tr>

@@ -3,7 +3,7 @@
   <td><%= recipe_food.quantity %></td>
   <td><%= recipe_food.food.price * recipe_food.quantity %></td>
   <% unless current_page?(general_shopping_list_path) %>
-    <td><%= button_to 'modify', edit_recipe_recipe_food_path(@recipe, recipe_food),  method: :edit %></td>
+    <td><%= link_to 'modify', edit_recipe_recipe_food_path(@recipe, recipe_food)%></td>
     <td><%= button_to 'delete', recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id),  method: :delete %></td>
   <% end %>
 </tr>

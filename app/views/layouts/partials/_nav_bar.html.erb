@@ -3,7 +3,9 @@
   <nav class="navbar">
     <ul class="navLinks flex gap-4">
       <% if user_signed_in? %>
-        <li><%= button_to "logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Food List", foods_path %></li>
+        <li><%= link_to "My Recipes", recipes_path %></li>
+        <li><%= button_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= button_to "Sign in", new_user_session_path, method: :get %></li>
         <li><%= button_to "Sign up", new_user_registration_path, method: :get %></li>

@@ -12,4 +12,16 @@
       <%= link_to "Back to recipes", root_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
     <% end %>
   </div>
+
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <%= render recipe_food %>
+    <% end %>
+  </table>
 </div>

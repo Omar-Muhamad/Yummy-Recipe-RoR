@@ -1,17 +1,7 @@
-<div id="<%= dom_id recipe_food %>">
-  <p>
-    <strong>Quantity:</strong>
-    <%= recipe_food.quantity %>
-  </p>
-
-  <p>
-    <strong>Food:</strong>
-    <%= recipe_food.food_id %>
-  </p>
-
-  <p>
-    <strong>Recipe:</strong>
-    <%= recipe_food.recipe_id %>
-  </p>
-
-</div>
+<tr id="<%= dom_id recipe_food %>">
+  <td><%= recipe_food.name %></td>
+  <td><%= recipe_food.quantity %></td>
+  <td><%= recipe_food.price %></td>
+  <td><%= button_to 'Modify', recipe_food,  method: :edit %></td>
+  <td><%= button_to 'delete', recipe_food,  method: :delete %></td>
+</tr>

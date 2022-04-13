@@ -1,28 +1,28 @@
-<div class="m-32">
+<div class="m-32 flex flex-col items-center">
   <p style="color: green"><%= notice %></p>
 
   <%= render @recipe %>
 
-  <div class="flex">
-  <% if current_user && current_user.id == @recipe.user_id %>
-      <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400"%>
-      <%= link_to "Back to recipes", recipes_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-      <%= link_to "Generate Shopping List", general_shopping_list_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
-    <% else %>
-      <%= link_to "Back to recipes", root_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+  <div class="flex w-full justify-between mb-11">
+    <% if current_user && current_user.id == @recipe.user_id %>
+      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-gray-50 hover:bg-slate-400"%>
+
+      <%= link_to "Generate Shopping List", general_shopping_list_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-gray-50 hover:bg-slate-400" %>
     <% end %>
   </div>
 
-  <table>
+  <table class="mb-20 text-left w-[80vw]">
     <tr>
-      <th>Food</th>
-      <th>Quantity</th>
-      <th>Value</th>
-      <th>Action</th>
+      <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">Food</th>
+      <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" p-4>Quantity</th>
+      <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" p-4>Value</th>
+      <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" p-4>Action</th>
     </tr>
     <% @recipe_foods.each do |recipe_food| %>
       <%= render recipe_food %>
     <% end %>
   </table>
+  <div class="self-start">
+    <%= link_to "Back to recipes", root_path, class:"border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-[#11537d] hover:bg-cyan-500 text-white" %>
+  </div>
 </div>

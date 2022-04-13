@@ -1,8 +1,8 @@
-<div id="<%= dom_id recipe %>" class="border-solid border-2 border-slate-400 p-4 mb-11">
+<div id="<%= dom_id recipe %>" class="mb-11">
 
 <% if current_page?(recipes_path) || current_page?(root_path) %>
 
-  <div class="mb-11">
+  <div class="p-4 mb-11 border-solid border-2 border-slate-400">
     <div class="flex">
       <p class="mr-20 w-1/4">
         <%= link_to recipe.name, recipe, class:"text-xl font-bold underline hover:text-[#11537d]" %>
@@ -15,14 +15,14 @@
 
     <% if user_signed_in? %>
       <% if current_user.id == recipe.user_id %>
-      <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+      <%= button_to "Delete this recipe", recipe, method: :delete, class:"mr-11 border-solid rounded-md border-2 border-slate-200 p-2 bg-gray-50 hover:bg-slate-400" %>
       <% end %>
     <% end %>
   </div>
 
 <% elsif current_page?(recipe_path(params[:id])) %>
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center border-b-2">
     <p class="mb-11 text-2xl">
       <strong><%= recipe.name %></strong>
     </p>
@@ -54,7 +54,10 @@
 
   <% if user_signed_in? %>
     <% if current_user.id == recipe.user_id %>
-      <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-slate-200 hover:bg-slate-400" %>
+      <div class="mb-11 w-[25vw] flex self-start justify-between">
+        <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-gray-50 hover:bg-slate-400" %>
+        <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class:"border-solid rounded-md border-2 border-slate-200 p-2 bg-gray-50 hover:bg-slate-400" %>
+      </div>
     <% end %>
   <% end %>
 </div>

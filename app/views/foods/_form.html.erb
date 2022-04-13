@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="mb-4">
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"border border-solid" %>
   </div>
 
-  <div>
+  <div class="mb-4">
     <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+    <%= form.text_field :measurement_unit, class:"border border-solid" %>
   </div>
 
-  <div>
+  <div class="mb-4">
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class:"border border-solid" %>
   </div>
 
-  <div>
+  <div class="mt-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-gray-50 hover:bg-slate-400 text-center">
     <%= form.submit %>
   </div>
 <% end %>

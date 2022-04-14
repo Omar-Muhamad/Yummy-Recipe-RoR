@@ -1,12 +1,13 @@
-<h3>Your Shopping List</h3>
-
-<table>
-<tr>
-  <th>Food</th>
-  <th>Quantity</th>
-  <th>Price</th>
-</tr>
-<% @recipe_foods.each do |recipe_food| %>
-  <%= render recipe_food %>
-<% end %>
-</table>
+<div class="m-20">
+  <h1 class="mb-11 text-3xl text-center font-medium">Shopping List</h1>
+  <table class="mb-20 border-2 text-left w-[80vw] border-slate-700 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">
+    <tr>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Food</th>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Quantity</th>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Price</th>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <%= render recipe_food %>
+    <% end %>
+  </table>
+</div>

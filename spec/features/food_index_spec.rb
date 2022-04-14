@@ -36,6 +36,5 @@ RSpec.describe 'The page index page', type: :feature do
       click_on 'Add new food'
       expect(current_path).to eql '/foods/new'
     end
-
   end
 end

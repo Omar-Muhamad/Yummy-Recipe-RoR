@@ -10,6 +10,10 @@ This website allows users to:
 
 <br>
 
+## Live demo
+
+This is the live demo [link](https://boiling-sierra-28535.herokuapp.com/) to our site.
+
 ## 🪛 Built with
 Ruby on Rails
 

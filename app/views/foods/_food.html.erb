@@ -1,6 +1,6 @@
-<tr id="<%= dom_id food %>">
-  <td class="p-4"><%= food.name %></td>
-  <td><%= food.measurement_unit %></td>
-  <td><%= food.price %></td>
-  <td><%= button_to 'delete', food,  method: :delete, class:"hover:text-[#11537d]" %></td>
+<tr id="<%= dom_id food %>" class="border-b-2 border-slate-700">
+  <td class="p-4 font-medium"><%= food.name %></td>
+  <td class="p-4 font-medium"><%= food.measurement_unit %></td>
+  <td class="p-4 font-medium"><%= food.price %></td>
+  <td><%= button_to 'delete', food,  method: :delete, class:"p-4 font-medium hover:text-red-500" %></td>
 </tr>

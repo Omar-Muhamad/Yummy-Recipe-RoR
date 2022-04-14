@@ -1,17 +1,17 @@
-<div class="m-32 flex flex-col items-center">
-  <h2 class="mb-11 text-3xl">Sign up</h2>
+<div class="w-[40%] text-[18px] my-20 mx-auto flex flex-col items-center">
+  <h2 class="mb-10 text-3xl font-medium">Sign up</h2>
   
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "w-full"}) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
   
     <div class="field mb-4">
       <%= f.label :name %><br />
-      <%= f.text_field :name, class:"border border-solid" %>
+      <%= f.text_field :name, class:"w-full px-4 py-3 border border-solid" %>
     </div>
   
     <div class="field mb-4">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"border border-solid" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full px-4 py-3 border border-solid" %>
     </div>
   
     <div class="field mb-4">
@@ -19,15 +19,15 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class:"border border-solid" %>
+      <%= f.password_field :password, autocomplete: "new-password", class:"w-full px-4 py-3 border border-solid" %>
     </div>
   
     <div class="field mb-4">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"border border-solid" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-full px-4 py-3 border border-solid" %>
     </div>
 
-    <div class="actions actions mt-11 mb-11 border-solid rounded-md border-2 borde  r-slate-200 p-2 bg-gray-50 hover:bg-slate-400 text-center">
+    <div class="actions mt-6 mb-10 mx-auto w-[50%] border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>

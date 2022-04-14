@@ -1,0 +1,64 @@
+<div id="<%= dom_id recipe %>" class="w-full mb-10 border-2 border-slate-700">
+
+  <% if current_page?(recipes_path) || current_page?(root_path) %>
+
+    <div class="p-6">
+      <div class="flex">
+        <p class="mr-20 w-1/4">
+          <%= link_to recipe.name, recipe, class:"text-xl font-bold underline hover:text-[#11537d]" %>
+        </p>
+        <p class="w-3/4">
+          <strong>Description:</strong>:</strong><br>
+          <%= recipe.description %>
+        </p>
+      </div>
+      <% if user_signed_in? %>
+        <% if current_user.id == recipe.user_id %>
+        <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center" %>
+        <% end %>
+      <% end %>
+    </div>
+
+  <% elsif current_page?(recipe_path(params[:id])) %>
+    <div class="flex w-full flex-col items-center border-b-2">
+      <p class="mb-10 mt-6 text-2xl">
+        <strong><%= recipe.name %></strong>
+      </p>
+
+      <p>
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time %> minutes
+      </p>
+
+      <p class="mb-11">
+        <strong>Cooking time:</strong>
+        <%= recipe.cooking_time %> minutes
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= recipe.description %>
+      </p>
+
+      <p>
+        <strong>Public:</strong>
+        <%= recipe.public %>
+      </p>
+
+      <p class="mb-11">
+        <strong>User:</strong>
+        <%= recipe.user_id %>
+      </p>
+
+      <% if user_signed_in? %>
+        <% if current_user.id == recipe.user_id %>
+          <div class="mb-11 w-[80%] mx-auto flex self-start justify-center gap-10">
+            <%= button_to "Delete this recipe", recipe, method: :delete, class:"border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center" %>
+            <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class:"border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

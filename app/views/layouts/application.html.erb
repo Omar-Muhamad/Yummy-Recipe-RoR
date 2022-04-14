@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yummy Recipe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+     </head>
+
+  <body>
+    <%= render "layouts/partials/nav_bar" %>
+    <% if notice %>
+      <p class="notice text-white bg-green-400 p-4 text-center"><%= notice %></p>
+    <% end %>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

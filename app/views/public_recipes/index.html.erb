@@ -1,0 +1,10 @@
+<div class="m-20">
+  <h1 class="mb-11 text-3xl">Public Recipes</h1>
+
+  <div id="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= render "/public_recipes/recipe", recipe: recipe %>
+    <% end %>
+  </div>
+</div>
+

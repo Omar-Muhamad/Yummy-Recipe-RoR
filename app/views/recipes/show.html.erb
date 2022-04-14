@@ -1,0 +1,26 @@
+<div class="m-20 w-[80%] mx-auto flex flex-col items-center">
+
+  <%= render @recipe %>
+
+  <div class="flex w-full justify-center mb-10 gap-[300px]">
+    <% if current_user && current_user.id == @recipe.user_id %>
+      <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class:"border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center"%>
+      <%= link_to "Generate Shopping List", general_shopping_list_path, class:"border-slate-700 rounded-md border-2 p-2 bg-gray-50 text-slate-700 hover:bg-slate-700 hover:text-white text-center" %>
+    <% end %>
+  </div>
+
+  <table class="mb-20 border-2 text-left w-[80vw] border-slate-700" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-4">
+    <tr>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Food</th>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Quantity</th>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4">Value</th>
+      <th class="text-xs text-white uppercase bg-gray-700 p-4 text-center">Action</th>
+    </tr>
+    <% @recipe_foods.each do |recipe_food| %>
+      <%= render recipe_food %>
+    <% end %>
+  </table>
+  <div class="self-start">
+    <%= link_to "Back to recipes", root_path, class:"text-white rounded-md p-2 bg-slate-700 hover:bg-white hover:text-slate-700 hover:border-2 hover:border-slate-700" %>
+  </div>
+</div>

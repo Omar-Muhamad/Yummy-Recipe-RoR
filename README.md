@@ -20,7 +20,6 @@ Ruby on Rails
 Before you install Rails, you should check to make sure that your system has the proper prerequisites installed. These include:
 
     Ruby
-    SQLite3
     Node.js
     Yarn
 
@@ -33,21 +32,9 @@ Open up a command line prompt. On macOS open Terminal.app; on Windows choose "Ru
 `$ ruby --version
 ruby 2.7.0`
 
-Rails requires Ruby version 2.7.0 or later. It is preferred to use latest Ruby version. If the version number returned is less than that number (such as 2.3.7, or 1.8.7), you'll need to install a fresh copy of Ruby.
+Rails requires Ruby version 2.7.0 or later. It is preferred to use the latest Ruby version. If the version number returned is less than that number (such as 2.3.7, or 1.8.7), you'll need to install a fresh copy of Ruby.
 
 To install Rails on Windows, you'll first need to install [Ruby Installer](https://rubyinstaller.org/).
-
-<br>
-
-<h3>Installing SQLite3</h3>
-
-You will also need an installation of the SQLite3 database.
-
-Verify that it is correctly installed and in your load PATH:
-
-`$ sqlite3 --version`
-
-The program should report its version.
 
 <br>
 <h3>Installing Node.js and Yarn</h3>
@@ -62,7 +49,7 @@ The version of your Node.js runtime should be printed out. Make sure it's greate
 
 To install Yarn, follow the installation instructions at the [Yarn website](https://classic.yarnpkg.com/en/docs/install).
 
-Running this command should print out Yarn version:
+Running this command should print out the Yarn version:
 
 `$ yarn --version`
 

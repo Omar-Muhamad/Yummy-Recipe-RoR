@@ -1,6 +1,6 @@
-# Yummy Recipes
+# Yummy Recipes (RoR Capstone)
 
-This website allows users to:
+This is a recipe app that allows users to:
 - add recipes,
 - edit and delete their own recipes,
 - see a list of all public recipes,
